@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
+import Debug from './Debug.jsx'
+import './styles/tokens.css'
+import './styles/bundle.css'
+import './styles/app.css'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const debug = new URLSearchParams(location.search).has('debug')
+createRoot(document.getElementById('root')).render(<StrictMode>{debug ? <Debug /> : <App />}</StrictMode>)

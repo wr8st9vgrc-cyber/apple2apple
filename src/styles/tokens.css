@@ -1,0 +1,47 @@
+/* 애플투애플 디자인 토큰 (디자인 시스템 tokens.json에서 생성) */
+:root {
+  --bg: #f0ede8;
+  --surface: #ffffff;
+  --surface-sunken: #f7f5f1;
+  --line: #e3ded6;
+  --line-control: #8a8278;
+  --ink: #1e1b18;
+  --ink-muted: #5f5850;
+  --brand: #bb080b;
+  --brand-strong: #960609;
+  --brand-deep: #7a0508;
+  --brand-soft: #fbeaea;
+  --on-brand: #ffffff;
+  --apple-green: #357a1f;
+  --cond-soft: #fff1d6;
+  --cond-line: #a8720f;
+  --cond-ink: #7a4a00;
+  --nocomp-soft: #eceef1;
+  --nocomp-line: #737b89;
+  --nocomp-ink: #475060;
+  --scrim: #1e1b1873;
+  --toast: var(--ink);
+  --font-sans: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-14: 56px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-full: 9999px;
+  --shadow-card: 0 1px 2px #1e1b180d, 0 6px 20px #1e1b1812;
+  --shadow-raised: 0 2px 6px #1e1b1814, 0 14px 32px #1e1b181f;
+  --shadow-overlay: 0 12px 24px #1e1b181f, 0 32px 64px -12px #1e1b1840;
+  --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #bb080b;
+  --content-max: 1280px;
+  --page-gutter: 80px;
+  --header-height: 72px;
+  --control-height: 48px;
+  --control-height-sm: 36px;
+}
