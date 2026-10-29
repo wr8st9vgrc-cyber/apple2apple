@@ -1,0 +1,89 @@
+:root {
+  --red: #bb080b;
+  --ivory: #f0ede8;
+  --card: #ffffff;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --line: #e2ddd6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--text);
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 20px 32px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--red);
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 16px;
+}
+
+.title {
+  font-size: 28px;
+  margin: 0 0 24px;
+}
+
+.purposes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card-desc {
+  color: var(--muted);
+}
+
+.note {
+  margin-top: 24px;
+  color: var(--muted);
+}
+
+.footer {
+  padding: 16px 32px;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
