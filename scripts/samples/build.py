@@ -387,7 +387,7 @@ def q07(r: Renderer, d: Path):
     att_name = "Talvik_USWC_Nov2026.xlsx"
     (d / f"B_첨부_{att_name}").write_bytes(att)
 
-    body = ("박서진 과장님, 안녕하세요.\nTalvik Container Line 한그레이스입니다.\n\n"
+    body = ("박서진 과장님, 안녕하세요.\nTalvik Container Line 그레이스 한입니다.\n\n"
             "요청하신 미주 서안 11월 운임 첨부드립니다.\n확인 부탁드립니다.\n\n"
             "감사합니다.\nGrace Han\nTalvik Container Line Korea")
     make_eml(d / "B_선사회신.eml", TALVIK_HAN, PARK, "RE: 미주 서안 11월 운임 요청",
@@ -442,22 +442,17 @@ def q08(r: Renderer, d: Path):
     <div style='font-size:72px;font-weight:800;color:#0b5fa5;line-height:1.1'>USD 1,500</div>
     <div style='font-size:16px;color:#555'>per 40' container</div>
   </div>
-  <div style='position:absolute;left:64px;bottom:90px;font-size:10.5px;color:#333;line-height:1.7;white-space:nowrap'>
+  <div style='position:absolute;left:64px;bottom:90px;font-size:11px;color:#333;line-height:1.7;white-space:nowrap'>
     Route: Busan Port (CY) → Rotterdam Port (CY) / Equipment: 40' x 1<br>
     Valid until 2026.11.15 / Payment: Prepaid<br>
     * 상기 금액은 해상운임 기준이며, 부산 현지 부대비용(THC 등) 및 내륙운송비 포함 여부는 화물 조건 확인 후 별도로 안내해 드립니다
   </div>
 </div>"""
     img = r.png(html)
-    # 인쇄본도 마지막 줄이 오른쪽 끝에서 잘리도록, 오른쪽 일부를 잘라 A4에 얹는다
-    w, h = img.size
-    cut = img.crop((0, 0, int(w * 0.80), h))
-    page = img.copy()
-    page.paste((255, 255, 255), (0, 0, w, h))
-    page.paste(cut, (0, 0))
-    page.save(d / "B_다른포워더견적_인쇄원본.png")
-    page.convert("RGB").save(d / "B_다른포워더견적_인쇄원본.pdf", "PDF", resolution=192.0)
-    photoify(page, seed=81, crop_right=0.06).save(d / "B_다른포워더견적_사진(합성).jpg", quality=80)
+    img.save(d / "B_다른포워더견적_인쇄원본.png")
+    r.pdf(html, d / "B_다른포워더견적_인쇄원본.pdf")
+    # 받은 사진처럼 종이 오른쪽이 화면 밖으로 나가 마지막 줄 끝이 잘린다
+    photoify(img, seed=81, crop_right=0.25).save(d / "B_다른포워더견적_사진(합성).jpg", quality=80)
 
 
 def q09(r: Renderer, d: Path):
@@ -532,7 +527,7 @@ def q10(r: Renderer, d: Path):
     <tr><th colspan='2' class='r'>합계</th><th class='r'>5,222,000</th></tr>
   </table>
   <div style='margin-top:18px;font-size:12px;line-height:1.8'>
-    ※ 부가세 별도 / 상기 금액은 40ft 2대 전체 금액입니다.
+    ※ 상기 금액은 40ft 2대 전체 금액입니다.
   </div>
 </div>"""
     scan = scanify(r.png(html2), seed=101, angle=0.6)
